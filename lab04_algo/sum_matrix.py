@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import random as rn
 import unittest 
+import numpy as np
 
 class Matrix:
     def __init__(self, data):
@@ -61,9 +62,8 @@ class Matrix:
         
         for x in range(self.col):
             for y in range(matrix_mul.row):
-                col = [sum([item[0]*item[1] for item in zip(self.data[x], matrix_transpose[y])])]
-                matrix_mul[x] = col
-
+                matrix_mul[x][y] = sum([item[0]*item[1] for item in zip(self.data[x], matrix_transpose[y])])
+                 
         return matrix_mul
 
 
@@ -99,23 +99,29 @@ class Matrix:
 
         return mat
 
-class TestMatrix(unittest.TestCase):
-    pass
-
 def Test():
-    matrix_1 = Matrix([[rn.randint(1, 100) for i in range(4)] for i in range(4)])
-    matrix_2 = Matrix([[rn.randint(1, 100) for i in range(4)] for i in range(4)])
-    
-    matrix_1.print_matrix()
-    matrix_2.print_matrix()
-    # matrix_1.transpose()
-    # matrix_1.print_matrix()
-    # print(matrix_1[0, 0])
-    #matrix_sum = matrix_1 + matrix_2
-    #print(matrix_sum)
-    
-    matrix_3 = matrix_1 * matrix_2
-    print(matrix_3)
+    #Class matrix
+    m1 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
+    m2 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
+    # print(m1)
+    # print(m2)        
+    m3 = m1 + m2
 
+
+    #Numpy to verification
+    np_m1 = np.array([m1[i] for i in range(3)])
+    np_m2 = np.array([m2[i] for i in range(3)])
+    # print(np_m1)
+    # print(np_m2)
+    np_m3 = np_m1 + np_m2
+
+    # print(np_m3)
+    # self.assertTrue(Matrix([[m3[i] for i in range(3)]]) == Matrix([[np_m3[i] for i in range(3)]]))
+
+    np_m3_conv = Matrix([[np_m3[j][i] for i in range(3)] for j in range(3)])
+    print(np_m3_conv)
+    print(m3)
+ 
 if __name__ == "__main__":
     Test()
+    # unittest.main()
