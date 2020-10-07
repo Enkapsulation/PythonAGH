@@ -100,7 +100,6 @@ class Matrix:
         return mat
 
 def Test():
-    #Class matrix
     m1 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
     m2 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
     # print(m1)
