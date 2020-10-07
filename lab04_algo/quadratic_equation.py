@@ -19,13 +19,16 @@ def quadratic_equation(a, b, c):
     except:
         print("Error, something went wrong!")
 
+def Test():
+    a, b, c = input("Podaj współczynniki a b c w postaci ax^2 + bx + c: ").split()
+    x_1 = quadratic_equation(int(a),int(b),int(c))
 
-a, b, c = input("Podaj współczynniki a b c w postaci ax^2 + bx + c: ").split()
-x_1 = quadratic_equation(int(a),int(b),int(c))
+    if x_1[0] == x_1[1]:
+        print(f'Jedno miejsce zerowe w x = {x_1[0]}')
+    elif "Nie ma" == x_1:
+        print("Nie ma miejsc zerowych")
+    else:
+        print(f'Dwa miejsca zerowe w x1 = {x_1[0]} i x2 = {x_1[1]}')
 
-if x_1[0] == x_1[1]:
-    print(f'Jedno miejsce zerowe w x = {x_1[0]}')
-elif "Nie ma" == x_1:
-    print("Nie ma miejsc zerowych")
-else:
-    print(f'Dwa miejsca zerowe w x1 = {x_1[0]} i x2 = {x_1[1]}')
+if __name__ == "__main__":
+    Test()

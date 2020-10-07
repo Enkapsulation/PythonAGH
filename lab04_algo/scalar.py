@@ -7,14 +7,17 @@ def scalar(vector_1, vector_2):
     except:
         print("Error, vector must have the same length")
         
-        
-v1 = [rn.randint(1, 100) for i in range(4)]
-v2 = [rn.randint(1, 100) for i in range(4)]
+def Test():     
+    v1 = [rn.randint(1, 100) for i in range(4)]
+    v2 = [rn.randint(1, 100) for i in range(4)]
 
-print(v1)
-print(v2)
+    print(v1)
+    print(v2)
 
-v3 = scalar(v1, v2)
+    v3 = scalar(v1, v2)
 
-if None != v3:
-    print(f'Scalar: {v3}')
+    if None != v3:
+        print(f'Scalar: {v3}')
+
+if __name__ == "__main__":
+    Test()

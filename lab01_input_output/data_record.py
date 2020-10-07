@@ -26,7 +26,7 @@ def check_password():
 
 
 
-def main():
+def Test():
     while 1:
         #Check whether secret password exists 
         if 0 == os.stat(file_path).st_size:
@@ -50,6 +50,6 @@ def main():
                 print("Wrong password, try again")
 
 if __name__ == "__main__":
-    main()
+    Test()
 
 

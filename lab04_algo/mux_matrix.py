@@ -15,12 +15,15 @@ def print_matrix(matrix_a):
     print("/--------------Macierz END---------------/")
 
 
+def Test():
+    m1 = [[rn.randint(1, 100) for i in range(8)] for i in range(8)]
+    m2 = [[rn.randint(1, 100) for i in range(8)] for i in range(8)]
 
-m1 = [[rn.randint(1, 100) for i in range(8)] for i in range(8)]
-m2 = [[rn.randint(1, 100) for i in range(8)] for i in range(8)]
+    print_matrix(m1)
+    print_matrix(m2)
 
-print_matrix(m1)
-print_matrix(m2)
+    result = mux_matrix(m1, m2)
+    print(result[0])
 
-result = mux_matrix(m1, m2)
-print(result[0])
+if __name__ == "__main__":
+    Test()

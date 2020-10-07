@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 class Person:
     def __init__(self, name, surname, birth_date):
         self.name = name
@@ -9,7 +8,7 @@ class Person:
     def introduce(self):
         print(f'Your name is: {self.name}, surname: {self.surname} and your date birth: {self.birth}')
 
-def main():
+def Test():
     # Take parameters from user
     name, surname, birth_date = input("Please type your name, surname and birth date: "). split()
 
@@ -20,4 +19,4 @@ def main():
     person.introduce()
 
 if __name__ == "__main__":
-    main()
+    Test()
