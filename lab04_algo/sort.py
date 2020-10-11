@@ -34,7 +34,7 @@ class SortTest(unittest.TestCase):
         v2.sort()
         print(v1)
         print(v2)
-        self.assertTrue(v1, v2)
+        self.assertEqual(v1, v2)
 
 
 if __name__ == "__main__":
