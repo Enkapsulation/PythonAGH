@@ -6,6 +6,7 @@ from os.path import splitext
 direcotry = 'ConvertTest/'
 target = '.png'
 
+#function to covert jpg extension to png extension
 for file in listdir(direcotry):
     filename, extension = splitext(file)
     try:
