@@ -11,7 +11,7 @@ def parse_and_delete(filename):
     shutil.copy(src,dst)
 
     #word to delete
-    delete_list = ["and", "never", "why"]
+    delete_list = ["and", "never", "why", "self"]
     try:
         #read input file
         f = open(filename,'r')

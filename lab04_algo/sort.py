@@ -28,7 +28,7 @@ class SortTest(unittest.TestCase):
     
     def test_add(self):
         v1 = [rn.randint(1, 100) for i in range(50)]
-        v2 = v1
+        v2 = v1.copy()
         n = len(v1)
         quickSort(v1, 0, n-1)
         v2.sort()

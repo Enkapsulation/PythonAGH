@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 import shutil
+import re
+from typing import List
+
+temporaryText: List[str] = []
+tmpLine: List[str] = []
 
 def parse_and_change(filename):
     '''
@@ -12,27 +17,20 @@ def parse_and_change(filename):
 
     try:
         #read input file
-        f = open(filename, "rt")
-        
-        #read file contents to string
-        data = f.read()
-        
-        #replace all occurrences of the required string
-        data = data.replace('and', 'as well as')
-        data = data.replace('never', 'almost never')
-        data = data.replace('why', 'czemu')
-        
-        #close the input file
-        f.close()
+        with open(filename, "r", encoding='utf8') as fdin:
+            for line in fdin:
+                #replace all occurrences of the required string
+                line = re.sub(r'\band\b', 'as well as', line)
+                line = re.sub(temp, 'and', line)
+                line = re.sub(r'\bnever\b', 'almost never', line)
+                line = re.sub(r'\bwhy\b', 'czemu', line)
+                temporaryText.append(line)
+    
         
         #open the input file in write mode
-        f = open(filename, "wt")
-        
-        #overrite the input file with the resulting data
-        f.write(data)
-        
-        #close the file
-        f.close()
+        with open(filename, 'w+') as fdout:
+            for line in temporaryText:
+                fdout.write(line)
     except:
         raise "[-]Error: Can't open or save file"
                 
