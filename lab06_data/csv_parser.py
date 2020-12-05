@@ -20,7 +20,7 @@ def read_file_csv(filename):
             RecordDict[line_count]["counter"] = row["counter"]
             RecordDict[line_count]["entropy"] = row["entropy"]
             line_count += 1
-        return RecordDict, line_count
+        return RecordDict
 
 '''
 
@@ -37,8 +37,15 @@ def save_csv(filename, dictionary):
 '''
 
 '''
-def add_row_csv(dictionary, place):
-    counter = sum(len(v) for v in dictionary.itervalues())
+def add_row_csv(dictionary, ip_addr, attack_type, counter, entropy):
+    counter = len(dictionary)
+    counter += 1
+
+    dictionary[counter] = {}
+    dictionary[counter]["ip_addr"] = ip_addr
+    dictionary[counter]["attack_type"] = attack_type
+    dictionary[counter]["counter"] = counter
+    dictionary[counter]["entropy"] = entropy
 
 '''
 
@@ -73,13 +80,15 @@ def menu():
 
 def test():
     file = "MaliciousIPAddr.csv"
-    modifying_csv, line_counter = read_file_csv(file)
+    modifying_csv = read_file_csv(file)
     show_actual_content_csv(modifying_csv)
     
     while 1:
         option = menu()
         if "Add record" == option:
-            pass
+            ip_addr,attack_type,counter,entropy = input("New value(ip_addr,attack_type,counter,entropy): ").split()
+            add_row_csv(modifying_csv, ip_addr, attack_type, counter, entropy)
+            show_actual_content_csv(modifying_csv)
         elif "Delete record" == option:
             ip_address = input("Enter the ip adress: ")
             try:
@@ -88,7 +97,7 @@ def test():
             except:
                 print("Can not find record try again")      
         elif "Show csv content" == option:
-            pass
+            show_actual_content_csv(modifying_csv)
         elif "Save file" == option:
             save_csv(file, modifying_csv)
         elif "Quit" == option:
