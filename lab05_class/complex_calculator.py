@@ -45,7 +45,7 @@ def parsing(text):
 
 def main():
     expr = input("Input your expression: ")
-    parsed = parsing(expr)
+    parsing(expr)
 
 
 if __name__ == "__main__":
