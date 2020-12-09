@@ -20,11 +20,11 @@ def quadratic_equation(a, b, c):
         print("Error, something went wrong!")
 
 def Test():
-    a, b, c = input("Podaj współczynniki a b c w postaci ax^2 + bx + c: ").split()
+    a, b, c = input("enter the coefficients a b c: ax^2 + bx + c: ").split()
     x_1 = quadratic_equation(int(a),int(b),int(c))
 
     if x_1[0] == x_1[1]:
-        print(f'Jedno miejsce zerowe w x = {x_1[0]}')
+        print(f'x_0 = {x_1[0]}')
     elif "Nie ma" == x_1:
         print("Nie ma miejsc zerowych")
     else:

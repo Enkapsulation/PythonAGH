@@ -101,21 +101,13 @@ class Matrix:
 
 def Test():
     m1 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
-    m2 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])
-    # print(m1)
-    # print(m2)        
+    m2 = Matrix([[rn.randint(1, 100) for i in range(3)] for i in range(3)])        
     m3 = m1 + m2
-
 
     #Numpy to verification
     np_m1 = np.array([m1[i] for i in range(3)])
     np_m2 = np.array([m2[i] for i in range(3)])
-    # print(np_m1)
-    # print(np_m2)
     np_m3 = np_m1 + np_m2
-
-    # print(np_m3)
-    # self.assertTrue(Matrix([[m3[i] for i in range(3)]]) == Matrix([[np_m3[i] for i in range(3)]]))
 
     np_m3_conv = Matrix([[np_m3[j][i] for i in range(3)] for j in range(3)])
     print(np_m3_conv)

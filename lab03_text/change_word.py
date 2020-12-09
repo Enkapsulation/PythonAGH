@@ -3,8 +3,7 @@ import shutil
 import re
 from typing import List
 
-temporaryText: List[str] = []
-tmpLine: List[str] = []
+temporary_text: List[str] = []
 
 def parse_and_change(filename):
     '''
@@ -16,6 +15,8 @@ def parse_and_change(filename):
     shutil.copy(src,dst)
 
     try:
+        #in temp we keep 
+        temp = "######"
         #read input file
         with open(filename, "r", encoding='utf8') as fdin:
             for line in fdin:
@@ -24,12 +25,12 @@ def parse_and_change(filename):
                 line = re.sub(temp, 'and', line)
                 line = re.sub(r'\bnever\b', 'almost never', line)
                 line = re.sub(r'\bwhy\b', 'czemu', line)
-                temporaryText.append(line)
+                temporary_text.append(line)
     
         
         #open the input file in write mode
         with open(filename, 'w+') as fdout:
-            for line in temporaryText:
+            for line in temporary_text:
                 fdout.write(line)
     except:
         raise "[-]Error: Can't open or save file"

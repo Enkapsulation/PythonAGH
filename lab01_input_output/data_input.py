@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+
+'''
+Class person
+'''
 class Person:
     
     def __init__(self, name, surname, birth_date):

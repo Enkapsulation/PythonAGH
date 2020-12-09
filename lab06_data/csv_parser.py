@@ -3,7 +3,7 @@ import csv
 import enquiries
 
 '''
-
+Method to read csv file 
 '''
 def read_file_csv(filename):
     with open(filename, mode='r') as csv_file:
@@ -23,7 +23,7 @@ def read_file_csv(filename):
         return RecordDict
 
 '''
-
+Method to save csv file
 '''
 def save_csv(filename, dictionary):
     with open(filename, mode='w') as csv_file:
@@ -35,7 +35,7 @@ def save_csv(filename, dictionary):
             writer.writerow({'ip_addr': dictionary[element]["ip_addr"], 'attack_type': dictionary[element]["attack_type"], 'counter': dictionary[element]["counter"], 'entropy': dictionary[element]["entropy"] })
 
 '''
-
+Method to add new record to csv file
 '''
 def add_row_csv(dictionary, ip_addr, attack_type, counter, entropy):
     counter = len(dictionary)
@@ -48,7 +48,7 @@ def add_row_csv(dictionary, ip_addr, attack_type, counter, entropy):
     dictionary[counter]["entropy"] = entropy
 
 '''
-
+method to delete record from csv file
 '''
 def delete_record_csv(dictionary, record_to_delete):
     i = 1
@@ -59,7 +59,7 @@ def delete_record_csv(dictionary, record_to_delete):
 
         i += 1
 '''
-
+method to show ccruent conntent of csv file
 '''
 def show_actual_content_csv(dictionary):
     print("ip_addr,attack_type,counter,entropy")
@@ -68,7 +68,7 @@ def show_actual_content_csv(dictionary):
         print(f'{dictionary[element]["ip_addr"]},    {dictionary[element]["attack_type"]},    {dictionary[element]["counter"]},   {dictionary[element]["entropy"]}')
 
 '''
-
+Menu for option
 '''
 def menu():
     options = ['Add record', 'Delete record', 'Show csv content', 'Save file', 'Quit']
